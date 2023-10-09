@@ -1,0 +1,131 @@
+{
+  "globals": {
+    "_": true,
+    "d3": true,
+    "$": true,
+    "moment": true,
+    "html2pdf": true
+  },
+  "parser": "@babel/eslint-parser",
+  "parserOptions": {
+    "babelOptions": {
+      "rootMode": "upward"
+    }
+  },
+  "plugins": ["flowtype", "mocha", "prettier", "react-hooks"],
+  "extends": [
+    "airbnb",
+    "plugin:flowtype/recommended",
+    "plugin:testing-library/react",
+    "plugin:jest-dom/recommended",
+    "prettier",
+    "prettier/flowtype",
+    "prettier/react"
+  ],
+  "env": {
+    "browser": true,
+    "mocha": true
+  },
+  "ignorePatterns": [],
+  "rules": {
+    "camelcase": [
+      "error",
+      {
+        "properties": "never",
+        "allow": ["^UNSAFE_"]
+      }
+    ],
+    "class-methods-use-this": 0,
+    "flowtype/require-valid-file-annotation": [2, "always"],
+    "import/extensions": [
+      2,
+      "never",
+      {
+        "scss": "always",
+        "css": "always"
+      }
+    ],
+    "import/no-extraneous-dependencies": 0,
+    "import/no-unresolved": 0,
+    "jsx-a11y/anchor-is-valid": 0,
+    "jsx-a11y/click-events-have-key-events": 0,
+    "jsx-a11y/label-has-associated-control": 0,
+    "jsx-a11y/label-has-for": 0,
+    "jsx-a11y/no-noninteractive-element-interactions": 0,
+    "jsx-a11y/no-static-element-interactions": 0,
+    "max-depth": [
+      "error",
+      {
+        "max": 3
+      }
+    ],
+    "max-nested-callbacks": [
+      "error",
+      {
+        "max": 3
+      }
+    ],
+    "max-statements": [
+      "error",
+      {
+        "max": 10
+      }
+    ],
+    "mocha/no-exclusive-tests": "error",
+    "no-param-reassign": "error",
+    "no-plusplus": [
+      "error",
+      {
+        "allowForLoopAfterthoughts": true
+      }
+    ],
+    "prefer-destructuring": [
+      "error",
+      {
+        "object": false,
+        "array": false
+      }
+    ],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "react/default-props-match-prop-types": 0,
+    "react/destructuring-assignment": [0, "never"],
+    "react/forbid-prop-types": 0,
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [".js", ".jsx"]
+      }
+    ],
+    "react/no-access-state-in-setstate": 0,
+    "react/no-unknown-property": ["error", { "ignore": ["css"] }],
+    "react/prop-types": 0,
+    "react/require-default-props": 0,
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off",
+    "testing-library/no-node-access": 0,
+    "testing-library/prefer-presence-queries": 0,
+    "testing-library/no-wait-for-multiple-assertions": 0,
+    "testing-library/no-unnecessary-act": 0,
+    "testing-library/no-container": 0,
+    "testing-library/no-render-in-setup": 0,
+    "testing-library/render-result-naming-convention": 0,
+    "testing-library/prefer-find-by": 0,
+    "testing-library/prefer-screen-queries": 0
+  },
+  "overrides": [
+    {
+      "files": ["**/config/**", "**/containers/**/*.js", "**/mocks/**"],
+      "rules": {
+        "max-statements": "off",
+        "flowtype/require-valid-file-annotation": [2, "never"]
+      }
+    },
+    {
+      "files": ["**/*.test.js", "**/mocks/**"],
+      "plugins": ["jest"],
+      "extends": ["plugin:jest/recommended"]
+    }
+  ],
+  "reportUnusedDisableDirectives": true
+}
