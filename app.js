@@ -1,19 +1,23 @@
+require("dotenv").config();
+require("express-async-errors");
+
 const express = require("express");
 const app = express();
-const dotenv = require("dotenv");
 const cors = require("cors");
-const connectDB = require("./db/connect");
 
+const connectDB = require("./db/connect");
+const mainRouter = require("./routes/main");
 const test = require("./routes/test");
 const notFound = require("./middleware/notFound");
 const errorHandler = require("./middleware/errorHandler");
 
 // MIDDLEWARE
-dotenv.config();
 app.use(cors());
+app.use(express.static("./public"));
 app.use(express.json());
 
 // ROUTES
+app.use("/api/v1", mainRouter);
 app.use("/api/v1", test);
 app.use(notFound);
 app.use(errorHandler);
